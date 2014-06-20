@@ -1,6 +1,23 @@
-<h1>Welcome to TweedlyDo, <%= @user.name %>!</h1>
-<% @user.todo_lists.each do |list| %>
-  <h2><%= list.title %></h4></br>
-<% end %>
-<%= link_to 'Add New Todo', new_todo_list_todo_path(@user) %>
-<%= link_to 'Add Todo List', new_user_todo_list_path(@user) %>
+<div class='row'>
+  <div class='columns large-12'>
+    <%= link_to 'New List', new_user_todo_list_path(@user), class: 'button small' %>
+  </div>
+</div>
+<div class='row'>
+  <% @user.todo_lists.each do |list| %>
+    <div class='row'>
+      <div class='columns large-12 panel'>
+        <div class='columns large-3'>
+          <h3><%= link_to list.title, todo_list_path(@user) %><h3></br>
+        </div>
+
+        <div class='columns large-9 panel callout'>
+          <% list.todos.each do |todo| %>
+            <h6><%= link_to todo.title, todo_path(@user) %></h6></br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

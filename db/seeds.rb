@@ -5,3 +5,29 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+users = []
+lists = []
+
+5.times do
+  users << User.create(name: Faker::Name.first_name)
+end
+
+users.each do |user|
+  times = 5
+  while times > 0 do
+    lists << TodoList.create(title: Faker::Commerce.department,
+                             user: user)
+    times -= 1
+  end
+end
+
+lists.each do |list|
+  times = 5
+  while times > 0 do
+    todo = Todo.create(title: Faker::Lorem.sentence(1, false, 3),
+                       todo_list: list)
+    todo.save
+    times -= 1
+  end
+end

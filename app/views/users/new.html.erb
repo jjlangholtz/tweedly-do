@@ -1,4 +1,7 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+<div class='columns large-4 large-centered'>
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, class: 'small success' %>
+    <%= link_to 'Back', root_path, class: 'button small right' %>
+  <% end %>
+</div>

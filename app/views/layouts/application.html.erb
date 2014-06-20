@@ -15,7 +15,7 @@
     <nav class='top-bar' data-topbar>
       <ul class='title-area'>
         <li class='name'>
-          <h1><%= link_to 'TweedlyDo', current_user %></h1>
+          <h1><%= link_to 'TweedlyDo', root_path %></h1>
         </li>
       </ul>
       <section class="top-bar-section">
@@ -23,8 +23,6 @@
           <% if current_user %>
             <li><%= link_to "#{current_user.name}", current_user %></li>
             <li><%= link_to 'Log out', logins_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Login", new_logins_path %></li>
           <% end %>
         </ul>
       </section>
