@@ -1,8 +1,6 @@
 class TodoListsController < ApplicationController
-  before_action :verify_logged_in, only: [:new, :create, :edit, :update, :destroy]
-
   def show
-
+    @list = TodoList.find(params[:id])
   end
 
   def new
@@ -16,15 +14,22 @@ class TodoListsController < ApplicationController
   end
 
   def edit
-
+    @list = TodoList.find(params[:id])
   end
 
   def update
-
+    @list = TodoList.find(params[:id])
+    if @list.update(todo_list_params)
+      redirect_to @list
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-
+    @list = TodoList.find(params[:id])
+    @list.destroy
+    redirect_to @list
   end
 
   private

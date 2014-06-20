@@ -1,0 +1,10 @@
+<h1>Create A New To Do</h1>
+<div class='columns large-4 large-centered'>
+  <%= simple_form_for [@list, @list.todos.build] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :due, as: :date, required: false %>
+    <%= f.input :notes, required: false %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+<%= link_to 'Back', user_path(@list), class: 'text-center' %>
