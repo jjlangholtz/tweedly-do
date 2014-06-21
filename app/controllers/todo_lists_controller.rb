@@ -34,6 +34,6 @@ class TodoListsController < ApplicationController
 
   private
     def todo_list_params
-      params.require(:todo_list).permit(:title, :user_id)
+      params.require(:todo_list).permit(:title, todos_attributes: [:complete, :id])
     end
 end

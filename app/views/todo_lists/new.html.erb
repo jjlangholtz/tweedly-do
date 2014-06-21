@@ -1,4 +1,7 @@
-<%= simple_form_for [@user, @user.todo_lists.build] do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit %>
-<% end %>
+<div class='columns large-4 large-centered'>
+  <%= simple_form_for [@user, @user.todo_lists.build] do |f| %>
+    <%= f.input :title %>
+    <%= f.button :submit, class: 'small success' %>
+    <%= link_to 'Back', user_path(@user), class: 'button small right' %>
+  <% end %>
+</div>

@@ -8,7 +8,8 @@
     <div class='row'>
       <div class='columns large-12 panel'>
         <div class='columns large-3'>
-          <h3><%= link_to list.title, todo_list_path(@user) %><h3></br>
+          <h3><%= link_to list.title, edit_todo_list_path(@user) %><h3></br>
+          <%= link_to 'Incompletes', todo_list_path(@user), class: 'button small' %>
         </div>
 
         <div class='columns large-9 panel callout'>
