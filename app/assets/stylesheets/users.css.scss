@@ -1,8 +1,24 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+i {
+  margin-right: 10px;
+}
+
 #new_todo_button {
   position: fixed;
   bottom: 10px;
   right: 40px;
+}
+
+.due {
+  margin-left: 10px;
+}
+
+.project {
+  text-transform: uppercase;
+}
+
+.todo {
+  margin-bottom: 5px;
 }

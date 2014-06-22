@@ -8,6 +8,7 @@
 
 users = []
 lists = []
+due_dates = []
 
 5.times do
   users << User.create(name: Faker::Name.first_name)
@@ -22,11 +23,18 @@ users.each do |user|
   end
 end
 
+5.times do
+  due_dates << Date.yesterday
+  due_dates << Date.current
+  due_dates << Date.tomorrow
+  due_dates << nil
+end
+
 lists.each do |list|
   times = 5
   while times > 0 do
     todo = Todo.create(title: Faker::Lorem.sentence(1, false, 3),
-                       todo_list: list)
+                       todo_list: list, due: due_dates.sample, complete: [true, false, nil].sample)
     todo.save
     times -= 1
   end

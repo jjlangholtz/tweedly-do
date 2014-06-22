@@ -16,3 +16,7 @@
  *= require font-awesome
 
  */
+
+.top-bar {
+  margin-bottom: 15px;
+}

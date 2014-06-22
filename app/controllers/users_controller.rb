@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @todos = @user.todos
+    @todos = @user.todos.order(:complete)
   end
 
   def new

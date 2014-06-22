@@ -5,14 +5,7 @@ class Todo < ActiveRecord::Base
   validates :title, presence: true,
                     length: { maximum: 30 }
   validates :notes, length: { maximum: 140 }
-  validate :due_date_cannot_be_in_the_past
 
   scope :complete, -> { where(complete: true) }
   scope :incomplete, -> { where(complete: false) }
-
-  def due_date_cannot_be_in_the_past
-    if due.present? && due < DateTime.now
-      errors.add(:due, "can't be in the past")
-    end
-  end
 end
