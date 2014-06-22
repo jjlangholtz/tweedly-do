@@ -4,8 +4,7 @@ class LoginsController < ApplicationController
   end
 
   def create
-    user = params[:user_id]
-    if user
+    if user = params[:user_id]
       session[:current_user_id] = user
     end
     redirect_to user_path(user)
@@ -13,6 +12,6 @@ class LoginsController < ApplicationController
 
   def destroy
     session[:current_user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: 'You have successfully logged out.'
   end
 end

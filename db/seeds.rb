@@ -16,7 +16,7 @@ end
 users.each do |user|
   times = 5
   while times > 0 do
-    lists << TodoList.create(title: Faker::Commerce.department,
+    lists << TodoList.create(title: Faker::Lorem.word,
                              user: user)
     times -= 1
   end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @todos = Todo.where( "user = ?", params[:id])
   end
 
   def new
@@ -9,9 +10,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-
-    redirect_to root_path
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
   end
 
   private

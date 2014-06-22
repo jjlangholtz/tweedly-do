@@ -14,11 +14,10 @@
 
         <div class='columns large-9 panel callout'>
           <% list.todos.each do |todo| %>
-            <h6><%= link_to todo.title, todo_path(@user) %></h6></br>
+            <h6><%= link_to todo.title, todo_path(@user) %></h6></br> <%# FIXME Understand route helpers better %>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-
