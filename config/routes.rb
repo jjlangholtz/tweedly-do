@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   shallow do
     resources :users, only: [:new, :create, :show] do
-      resources :todo_lists, except: :index do
-        resources :todos, except: :index
-      end
+      resources :todo_lists, except: :index
+      resources :todos, except: :index
     end
   end
 end

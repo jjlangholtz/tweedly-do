@@ -1,23 +1,2 @@
-<div class='row'>
-  <div class='columns large-12'>
-    <%= link_to 'New List', new_user_todo_list_path(@user), class: 'button small' %>
-  </div>
-</div>
-<div class='row'>
-  <% @user.todo_lists.each do |list| %>
-    <div class='row'>
-      <div class='columns large-12 panel'>
-        <div class='columns large-3'>
-          <h3><%= link_to list.title, edit_todo_list_path(@user) %><h3></br>
-          <%= link_to 'Incompletes', todo_list_path(@user), class: 'button small' %>
-        </div>
-
-        <div class='columns large-9 panel callout'>
-          <% list.todos.each do |todo| %>
-            <h6><%= link_to todo.title, todo_path(@user) %></h6></br> <%# FIXME Understand route helpers better %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render @todos %>
+<%= render partial: 'shared/footer', locals: { user: @user } %>

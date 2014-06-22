@@ -1,0 +1,5 @@
+<div class='columns large-8 large-centered'>
+  <%= div_for(todo, class: 'panel') do %>
+    <%= link_to todo.title, todo_path(todo) %><%= link_to todo.todo_list.title, todo_list_path(todo.todo_list_id), class: 'right label' %>
+  <% end %>
+</div>

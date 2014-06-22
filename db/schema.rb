@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140619191250) do
     t.string   "title"
     t.text     "notes"
     t.boolean  "complete"
-    t.datetime "due"
+    t.date     "due"
     t.integer  "todo_list_id"
     t.integer  "user_id"
     t.datetime "created_at"
