@@ -4,7 +4,6 @@ class Todo < ActiveRecord::Base
 
   validates :title, presence: true,
                     length: { maximum: 30 }
-  validates :notes, length: { maximum: 140 }
 
   scope :complete, -> { where(complete: true) }
   scope :incomplete, -> { where(complete: false) }

@@ -34,7 +34,7 @@ lists.each do |list|
   times = 5
   while times > 0 do
     todo = Todo.create(title: Faker::Lorem.sentence(1, false, 3),
-                       todo_list: list, due: due_dates.sample, complete: [true, false, nil].sample)
+                       todo_list: list, due: due_dates.sample, complete: [true, false, nil].sample, notes: Faker::Lorem.paragraph)
     todo.save
     times -= 1
   end

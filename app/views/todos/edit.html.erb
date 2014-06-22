@@ -1,0 +1,18 @@
+<div class='row'>
+  <div class='columns large-8 large-offset-1'>
+    <%= render @todos %>
+  </div>
+  <div class='columns large-3 panel side-bar'>
+
+  <%= simple_form_for @todo, method: 'patch' do |f| %>
+    <%= f.input :complete, label: 'Completed?', value: true, checked: true %>
+    <%= f.input :title, label: false %>
+    <%= f.input :todo_list_id, collection: @lists, label: 'Project', include_blank: false %>
+    <%= f.input :due, discard_year: true, include_blank: true %>
+    <%= f.input :notes, input_html: { rows: 5 } %>
+    <%= f.submit 'Save', class: 'button success tiny' %>
+  <% end %>
+
+</div>
+<%= render partial: 'shared/footer', locals: { user: @user } %>
+
