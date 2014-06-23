@@ -1,13 +1,15 @@
 <%= content_for :title, @user.name %>
+
 <div class='row'>
-  <div class='columns large-1'>
-    <%= render partial: 'shared/left', locals: { user: @user } %>
-  </div>
-  <div class='columns large-10 left'>
+  <div class='columns large-10 large-offset-1'>
     <%= simple_form_for [@user, @user.todos.build], method: 'post' do |f| %>
       <%= f.input :title, label: false %>
       <%= f.submit 'Save', class: 'button small success' %>
     <% end %>
+  </div>
+
+<div class='row'>
+  <div class='columns large-10 large-offset-1'>
     <%= render @todos %>
   </div>
 </div>
