@@ -1,20 +1,28 @@
 class TodoListsController < ApplicationController
-  def show
-    @list = TodoList.find(params[:id])
+  def index
+    @user = User.find(session[:current_user_id])
+    @todo_lists = @user.todo_lists
+    @todos = @user.todos.where(complete: [nil, false] )
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:current_user_id])
+    @list = TodoList.find(params[:user_id])
+    @todo_lists = @user.todo_lists
+    @todos = @user.todos.where(complete: [nil, false] )
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:current_user_id])
     @list = @user.todo_lists.create(todo_list_params)
-    redirect_to user_path(@user)
+    redirect_to user_todo_lists_path(@user)
   end
 
   def edit
+    @user = User.find(session[:current_user_id])
+    @todo_lists = @user.todo_lists
     @list = TodoList.find(params[:id])
+    @todos = @list.todos.where(complete: [nil, false] )
   end
 
   def update

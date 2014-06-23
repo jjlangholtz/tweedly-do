@@ -1,6 +1,9 @@
 <%= content_for :title, @user.name %>
 <div class='row'>
-  <div class='columns large-10'>
+  <div class='columns large-1'>
+    <%= render partial: 'shared/left', locals: { user: @user } %>
+  </div>
+  <div class='columns large-10 left'>
     <%= render @todos %>
   </div>
 </div>
