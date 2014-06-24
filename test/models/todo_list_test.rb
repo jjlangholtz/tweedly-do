@@ -16,12 +16,4 @@ class TodoListTest < ActiveSupport::TestCase
     assert todo_list.invalid?
     assert_equal ["has already been taken"], todo_list.errors[:title]
   end
-
-  test "each user can have a todo list of the same title" do
-    joshs_chore_list = TodoList.new(title: 'Chore', user_id: 1)
-    pauls_chore_list = TodoList.new(title: 'Chore', user_id: 2)
-
-    assert joshs_chore_list.valid?
-    assert pauls_chore_list.valid?
-  end
 end

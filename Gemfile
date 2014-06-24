@@ -24,3 +24,8 @@ gem 'quiet_assets', group: :development
 
 # Testing
 gem 'faker'
+gem 'growl', group: :development
+gem 'guard', group: :development
+gem 'guard-minitest', group: :development
+gem 'capybara'
+
