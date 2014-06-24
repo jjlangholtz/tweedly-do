@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140619191250) do
   create_table "todos", force: true do |t|
     t.string   "title"
     t.text     "notes"
-    t.boolean  "complete"
+    t.boolean  "complete",     default: false
     t.date     "due"
     t.integer  "todo_list_id"
     t.integer  "user_id"

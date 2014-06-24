@@ -20,5 +20,7 @@ gem 'font-awesome-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'pry-rails', group: :development
+gem 'quiet_assets', group: :development
 
+# Testing
 gem 'faker'

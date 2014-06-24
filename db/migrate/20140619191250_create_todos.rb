@@ -3,7 +3,7 @@ class CreateTodos < ActiveRecord::Migration
     create_table :todos do |t|
       t.string :title
       t.text :notes
-      t.boolean :complete
+      t.boolean :complete, default: false
       t.date :due
       t.references :todo_list, index: true
       t.references :user, index: true

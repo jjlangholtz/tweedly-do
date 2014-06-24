@@ -7,3 +7,7 @@ one:
 two:
   title: MyString
   user_id: 
+
+clean:
+  title: Take out trash
+  user_id: 
