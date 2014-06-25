@@ -1,9 +1,5 @@
 <%= div_for(todo, class: 'panel radius todo') do %>
-  <% if todo.complete %>
-    <i class="fa fa-check-square-o"></i>
-  <% else %>
-    <i class="fa fa-square-o"></i>
-  <% end %>
+  <%= check_box_tag :complete, todo.id, todo.complete, class: 'todo-check' %>
   <%= link_to todo.title, edit_todo_path(todo) %>
     <% unless todo.due == nil %>
       <% if todo.due > Time.current - 1.day %>

@@ -32,6 +32,17 @@ class TodosController < ApplicationController
     @todo.destroy
     redirect_to @todo
   end
+
+  def toggle
+    @user = User.find(session[:current_user_id])
+    @todo = Todo.find(params[:id])
+
+    if @todo.update(complete: params[:complete])
+      render json: @todo
+    else
+      render nothing: true
+    end
+  end
 end
 
   private
