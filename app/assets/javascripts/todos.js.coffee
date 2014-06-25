@@ -10,7 +10,7 @@ $(".todo-check").on "change", ->
     success: (data) ->
       id = "#todo_" + data.id
       complete = data.complete
-      parent = $("#todos-list")
+      parent = $("#todos_list")
       if complete
         $(id).detach().appendTo(parent)
       else

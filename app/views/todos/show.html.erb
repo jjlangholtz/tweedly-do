@@ -3,11 +3,6 @@
     <%= render @todos %>
   </div>
   <div class='columns large-3 panel'>
-   <% if @todo.complete %>
-    <i class="fa fa-check-square-o"></i>
-  <% else %>
-    <i class="fa fa-square-o"></i>
-  <% end %>
    <p><%= @todo.title %></p>
   </div>
 </div>
