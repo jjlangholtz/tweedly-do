@@ -5,37 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+VERBS = %w[clean type program walk eat help run walk]
+NOUNS = %w[computer dog apple kitchen homework soap]
 
-users = []
-lists = []
-due_dates = []
+josh = User.create(name: 'Josh')
+programming = josh.todo_lists.create(title: 'Programming')
+chores = josh.todo_lists.create(title: 'Home Chores')
 
-5.times do
-  users << User.create(name: Faker::Name.first_name)
-end
-
-users.each do |user|
-  times = 5
-  while times > 0 do
-    lists << TodoList.create(title: Faker::Lorem.word,
-                             user: user)
-    times -= 1
-  end
-end
-
-5.times do
-  due_dates << Date.yesterday
-  due_dates << Date.current
-  due_dates << Date.tomorrow
-  due_dates << nil
-end
-
-lists.each do |list|
-  times = 5
-  while times > 0 do
-    todo = Todo.create(title: Faker::Lorem.sentence(1, false, 3),
-                       todo_list: list, due: due_dates.sample, complete: [true, false, nil].sample, notes: Faker::Lorem.paragraph)
-    todo.save
-    times -= 1
-  end
+15.times do
+  programming.todos.create(title: "#{VERBS.sample} the #{NOUNS.sample}",
+                           due: [Date.yesterday, Date.current, Date.tomorrow].sample)
+  chores.todos.create(title: "#{VERBS.sample} the #{NOUNS.sample}",
+                           due: [Date.yesterday, Date.current, Date.tomorrow].sample)
 end
