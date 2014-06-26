@@ -6,7 +6,7 @@ class TodosController < ApplicationController
 
   def create
     @user = User.find(session[:current_user_id])
-    @list = @user.todo_lists.find_by_title('Uncategorized') || @user.todo_lists.create(title: 'Uncategorized')
+    @list = @user.todo_lists.find_by_title('Inbox') || @user.todo_lists.create(title: 'Inbox')
     @todo = @list.todos.create(todo_params)
     redirect_to user_path(@user)
   end

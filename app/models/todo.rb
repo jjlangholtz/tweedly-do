@@ -6,7 +6,7 @@ class Todo < ActiveRecord::Base
                     length: { maximum: 30 }
 
   scope :complete, -> { where(complete: true) }
-  scope :incomplete, -> { where(complete: false) }
+  scope :incomplete, -> { where.not(complete: true) }
 
   def overdue?
     due < Date.current

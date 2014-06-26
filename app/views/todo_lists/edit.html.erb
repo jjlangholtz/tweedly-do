@@ -1,15 +1,13 @@
-<div class='row'>
-  <div class='columns large-8 large-centeredl'>
-    <h3><%= link_to @list.title, edit_todo_list_path(@list) %><h3></br>
-    <div class='columns large-1'>
-      <%= form_for @list do |f| %>
-        <%= f.fields_for :todos do |todos_form| %>
-          <%= todos_form.label :complete, todos_form.object.title %>
-          <%= todos_form.check_box :complete %></br>
-        <% end %>
-        <%= f.submit 'Update' %>
-      <% end %>
-    </div>
+<%= content_for :title, @user.name %>
+<div class="row">
+  <div class='columns large-1'>
+    <%= render partial: 'shared/left', locals: { user: @user } %>
+  </div>
+  <div class='columns large-2 left'>
+    <%= render @todo_lists %>
+  </div>
+  <div class='columns large-8 left'>
+    <%= render @todos %>
   </div>
 </div>
-
+<%= render partial: 'shared/footer', locals: { user: @user } %>

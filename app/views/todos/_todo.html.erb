@@ -1,11 +1,11 @@
-<%= div_for(todo, class: 'panel radius todo') do %>
+<%= div_for(todo, class: 'panel radius') do %>
   <%= check_box_tag :complete, todo.id, todo.complete, class: 'todo-check' %>
   <%= link_to todo.title, edit_todo_path(todo) %>
     <% unless todo.due == nil %>
       <% if todo.due > Time.current - 1.day %>
-        <%= link_to todo.due.to_formatted_s(:short), todo_path(todo), class: 'right secondary label round due' %>
+        <%= link_to todo.due.to_formatted_s(:short), edit_todo_path(todo), class: 'right secondary label round due' %>
       <% else %>
-        <%= link_to todo.due.to_formatted_s(:short), todo_path(todo), class: 'right alert label round due' %>
+        <%= link_to todo.due.to_formatted_s(:short), edit_todo_path(todo), class: 'right alert label round due' %>
       <% end %>
     <% end %>
   <%= link_to todo.todo_list.title, todo_list_path(todo.todo_list_id), class: 'right label round project' %>

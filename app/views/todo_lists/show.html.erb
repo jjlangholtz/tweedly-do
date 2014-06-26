@@ -1,12 +1,10 @@
+<%= content_for :title, @user.name %>
 <div class='row'>
-  <div class='columns large-8 large-centered panel'>
-    <h3><%= link_to @list.title, edit_todo_list_path(@list) %><h3></br>
-    <div class='panel callout'>
-      <% @list.todos.incomplete.each do |todo| %>
-        <h6><%= link_to todo.title, todo_path(@list) %></h6></br>
-      <% end %>
-    </div>
+  <div class="columns large-1">
+    <%= render partial: "shared/left", locals: { user: @user } %>
+  </div>
+  <div class="columns large-10 left">
+    <%= render @todos %>
   </div>
 </div>
-
-
+<%= render partial: 'shared/footer', locals: { user: @user } %>

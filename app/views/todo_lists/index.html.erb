@@ -1,17 +1,12 @@
 <%= content_for :title, @user.name %>
-
-<div class="row">
+<div class='row'>
   <div class="columns large-1">
-    <%- render partial: 'shared/left', locals: { user: @user } %>
+    <%= render partial: 'shared/left', locals: { user: @user } %>
   </div>
   <div class="columns large-2 left">
     <%= render @todo_lists %>
   </div>
   <div class="columns large-8 left">
-    <%= simple_form_for [@user, @user.todo_lists.build], method: 'post' do |f| %>
-      <%= f.input :title, label: false %>
-      <%= f.submit 'Save', class: 'button small success' %>
-    <% end %>
     <%= render @todos %>
   </div>
 </div>
