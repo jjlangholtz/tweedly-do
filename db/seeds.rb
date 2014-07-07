@@ -8,7 +8,7 @@
 VERBS = %w[clean type program walk eat help run walk]
 NOUNS = %w[computer dog apple kitchen homework soap]
 
-josh = User.create(name: 'Josh')
+josh = User.create(name: 'Josh', email: 'josh@test.com', password: '123')
 programming = josh.todo_lists.create(title: 'Programming')
 chores = josh.todo_lists.create(title: 'Home Chores')
 

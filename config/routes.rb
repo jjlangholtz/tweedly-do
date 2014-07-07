@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'logins#new'
+  root 'users#new'
 
   resource :logins, only: [:new, :create, :destroy]
 

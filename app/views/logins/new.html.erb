@@ -1,9 +1,12 @@
 <%= content_for :title, 'TweedlyDo Login' %>
 <div class='columns large-4 large-centered panel'>
   <%= form_tag logins_path do %>
-    <%= label_tag :user_id, 'Name' %>
-    <%= select_tag :user_id,
-          options_for_select(@users.map { |user| [user.name, user.id] }) %>
+    <%= label_tag :email, 'Email' %>
+    <%= text_field_tag :email %>
+
+    <%= label_tag :password, 'Password' %>
+    <%= text_field_tag :password %>
+
     <%= submit_tag 'Login', class: 'button small success' %>
     <%= link_to 'New User?', new_user_path, class: 'button small right' %>
   <% end %>

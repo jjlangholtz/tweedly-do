@@ -1,17 +1,20 @@
 class LoginsController < ApplicationController
   def new
-    @users = User.all
   end
 
   def create
-    if user = params[:user_id]
-      session[:current_user_id] = user
+    user = User.find_by(email: params[:email].downcase)
+    if user && user.authenticate(params[:password])
+      sign_in user
+      redirect_to user
+    else
+      flash.now[:error] = 'Invalid email/password combination'
+      render 'new'
     end
-    redirect_to user_path(user)
   end
 
   def destroy
-    session[:current_user_id] = nil
-    redirect_to root_path, notice: 'You have successfully logged out.'
+    sign_out
+    redirect_to root_url, notice: 'You have successfully logged out.'
   end
 end

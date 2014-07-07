@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619191250) do
+ActiveRecord::Schema.define(version: 20140707023147) do
 
   create_table "todo_lists", force: true do |t|
     t.string   "title"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20140619191250) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
 
 end
