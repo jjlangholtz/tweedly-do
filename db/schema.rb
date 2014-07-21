@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140707023147) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "todo_lists", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140707023147) do
     t.datetime "updated_at"
   end
 
-  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id"
+  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id", using: :btree
 
   create_table "todos", force: true do |t|
     t.string   "title"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140707023147) do
     t.datetime "updated_at"
   end
 
-  add_index "todos", ["todo_list_id"], name: "index_todos_on_todo_list_id"
-  add_index "todos", ["user_id"], name: "index_todos_on_user_id"
+  add_index "todos", ["todo_list_id"], name: "index_todos_on_todo_list_id", using: :btree
+  add_index "todos", ["user_id"], name: "index_todos_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -44,5 +47,7 @@ ActiveRecord::Schema.define(version: 20140707023147) do
     t.string   "password_digest"
     t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

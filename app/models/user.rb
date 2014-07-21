@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
-  before_create { :create_remember_token }
+  before_create :create_remember_token
 
   has_many :todo_lists
   has_many :todos, through: :todo_lists, dependent: :destroy
