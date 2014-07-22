@@ -6,6 +6,5 @@ class TodoList < ActiveRecord::Base
   validates :title, presence: true,
                     uniqueness: { scope: :user },
                     length: { maximum: 30 }
-  validates :user, presence: true
   validates_associated :todos
 end

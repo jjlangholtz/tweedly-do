@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
 group :development do
+  gem 'guard-rspec', require: false
   gem 'spring'
 end
 
@@ -32,4 +33,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :test do
+  gem 'simplecov', :require => false
 end
