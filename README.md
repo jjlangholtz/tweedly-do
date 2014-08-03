@@ -4,9 +4,7 @@ TweedlyDo is a web application for tracking lists of things to do.
 
 # Usage
 
-* Clone the repository
-* Run rake db:migrate to set up the database
-* Run rake db:seed if you would like sample data
+``rake db:migrate db:seed``
 
 # TODO
 
